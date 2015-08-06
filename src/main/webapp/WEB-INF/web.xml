@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    
+    <display-name>ocloud</display-name>
+    
+    <description>Roo generated ocloud application</description>
+
+    
+    <!-- Enable escaping of form submission contents -->
+    <context-param>
+        <param-name>defaultHtmlEscape</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:META-INF/spring/applicationContext*.xml</param-value>
+    </context-param>
+    
+    <!--防止中文乱码  -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+     <!-- security -->
+    	<!-- <filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+   
+ <!--    <listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+     -->
+    <!-- jumu edit -->
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>ocloudmaster.root</param-value>
+	</context-param>
+    <filter>
+        <filter-name>HttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    
+    <filter>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>HttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+    <servlet-name>UpLoad</servlet-name>
+    <servlet-class>com.ourselec.ocloud.service.UpLoad</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>UpLoad</servlet-name>
+    <url-pattern>/UpLoad/service</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+    <servlet-name>test</servlet-name>
+    <servlet-class>com.ourselec.ocloud.controller.Test001Controller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test/service</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Handles Spring requests -->
+    <servlet>
+        <servlet-name>ocloud</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>WEB-INF/spring/webmvc-config.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ocloud</servlet-name>
+        <url-pattern>/</url-pattern>
+        
+        
+        
+        
+    </servlet-mapping>
+    <servlet-mapping> 
+    <servlet-name>default</servlet-name> 
+    <url-pattern>*.jpg</url-pattern> 
+        <url-pattern>*.png</url-pattern> 
+        <url-pattern>*.gif</url-pattern> 
+        <url-pattern>*.css</url-pattern> 
+        <url-pattern>*.js</url-pattern> 
+        <url-pattern>*.swf</url-pattern> 
+        <url-pattern>*.pdf</url-pattern> 
+        <url-pattern>*.java</url-pattern> 
+        <url-pattern>*.class</url-pattern> 
+        <url-pattern>*.xls</url-pattern> 
+        <url-pattern>*.xlsx</url-pattern> 
+        <url-pattern>*.et</url-pattern> 
+        <url-pattern>*.vm</url-pattern> 
+        <url-pattern>*.html</url-pattern>
+    
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>720</session-timeout>
+    </session-config>
+    
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/uncaughtException</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/resourceNotFound</location>
+    </error-page>
+    <welcome-file-list>
+    <welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

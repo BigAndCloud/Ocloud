@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	  
+     <bean id="jdbcTemplateocloud" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false"
+        lazy-init="false" autowire="default" dependency-check="default">
+        <property name="dataSource">
+            <ref bean="ocloudDataSource" />
+        </property>
+    </bean>
+    
+    
+     <bean id="ocloudDao" class="com.ourselec.ocloud.mysql.OcloudDao"> 
+        <property name="jdbcTemplate"> 
+           <ref local="jdbcTemplateocloud" /> 
+        </property>
+    </bean>
+     
+</beans>
