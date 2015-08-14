@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/button.css"> --%>
 <script type="text/javascript" 
 	src="<%=request.getContextPath()%>/js/jquery.js"></script>	

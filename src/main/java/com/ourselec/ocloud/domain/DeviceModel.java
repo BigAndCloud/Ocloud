@@ -2,6 +2,8 @@ package com.ourselec.ocloud.domain;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Future;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,8 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 
 
 @RooJson
@@ -213,5 +217,47 @@ public class DeviceModel {
 		
 		
 		return query.getResultList().size()==0?null:query.getResultList().get(0);
+	}
+
+	@Async
+	public Future<String> addModel(Map<String, Object> map) {
+		String errormsg=" The Model addition success";
+		try {
+			
+				String name= (String)map.get("name");
+				String alias= (String)map.get("alias");
+				String user_id=	(String)map.get("user_id");
+				Integer alive_time= Integer.valueOf((String)map.get("alive_time"));
+				String timezone= (String)map.get("timezone");
+				Double lng= Double.valueOf((String)map.get("lng"));
+				Double lat= Double.valueOf((String)map.get("lat"));
+				String comment= (String)map.get("devicecomment");
+				Integer vendor_id= Integer.valueOf((String)map.get("vendor_id"));
+				Integer developer_id= Integer.valueOf((String)map.get("developer_id"));
+				String model_id= (String)map.get("model_id");
+				String model_name=	(String)map.get("model_name");
+				Integer text_encoding_id=	Integer.valueOf((String)map.get("text_encoding_id"));
+				Integer  binary_encoding_id = Integer.valueOf((String)map.get("binary_encoding_id"));
+				String picture= (String)map.get("picture");
+				String modelconmment= (String)map.get("modelcomment");
+			 boolean fale=	Device.addDevice(name, alias, user_id, alive_time, timezone, lng, lat, comment, "3", vendor_id, developer_id, model_id, null, null);
+			 if (fale) {
+				
+				String source_id=  Device.findModel_id(model_id).getDevice_id();
+				boolean fale1=	addModel(developer_id, vendor_id, model_name, model_id, source_id, text_encoding_id, binary_encoding_id, picture, modelconmment);
+				if (!fale1) {
+					
+					errormsg="The DeviceModel addition failed!";
+				}
+			}else {
+				errormsg = "The Device addition failed!";
+			}
+			
+  
+		} catch (Exception e) {
+			errormsg=" The Model addition failed！"+e.getMessage();
+			e.printStackTrace();
+		}
+		  return new AsyncResult<String>(errormsg);
 	}
 }

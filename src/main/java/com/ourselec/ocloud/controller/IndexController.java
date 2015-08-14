@@ -95,11 +95,9 @@ public ModelAndView index(ModelAndView view
 		if (reDTOList.size()!=0) {
 			String json =	JsonUtil.toJson(reDTOList);
 			view.addObject("resources", json);
-			System.out.println(json);
 		}else{
 		String json =	JsonUtil.toJson(reDTOList);
 		view.addObject("resources", json);
-		System.out.println(json);
 		}
 		view.addObject("errormsg", errormsg);
 		

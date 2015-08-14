@@ -63,8 +63,9 @@ public class Test001Controller extends HttpServlet{
 			if(!file.exists()){
 				item.write(file);
 			//将上传图片的名字记录到数据库中
-			
+			//跳转页面
 				resp.sendRedirect("upload/l");
+				
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,10 +63,10 @@ public class DeviceModelController {
 		 deveList.add(deve);
 		 vendor= Vendor.findByvendorid(deve.getVendor_id());
 	}
-	List<Device> devices= Device.findByUserid(user_id);
+//	List<Device> devices= Device.findByUserid(user_id);
 	view.addObject("vendor", vendor);
 	view.addObject("deveList", deveList);
-	view.addObject("devices", devices);
+	view.addObject("user_id", user_id);
 	view.setViewName("deviceModel/addModel");
 		return view;
 	}
@@ -485,5 +486,12 @@ public class DeviceModelController {
 		view.setViewName("deviceModel/modelInfo");
 		return view;
 	}
-	
+	@RequestMapping("/addModelsuccess")
+	public ModelAndView addModelsuccess(ModelAndView view,HttpServletRequest req, HttpServletResponse resp){
+		logger.info("deviceModel/addModelsuccess");
+		String user_id= req.getParameter("user_id");
+		System.out.println(user_id);
+		view.setViewName("deviceModel/success");
+		return view;
+	}
 }

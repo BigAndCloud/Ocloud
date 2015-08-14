@@ -19,6 +19,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 import com.ourselec.ocloud.util.RandomNumberGenerator;
 import com.ourselec.ocloud.util.RangeCreateUtil;
+import com.ourselec.ocloud.util.StringUtil;
 @RooJson
 @RooJavaBean
 @RooToString
@@ -56,7 +57,7 @@ public class Device {
 	@Column(name="device_key")
 	private String device_key;
 	
-	//'设备类型 0 测试设备， 1 产品设备' 2产品原型,
+	//'设备类型 0 测试设备 （自动生成Model）， 1 产品设备' 2产品原型,3（手动添加Model的）测试设备
 	@Column(name="device_type")
 	private String device_type;
 	
@@ -130,7 +131,10 @@ public class Device {
 			device.setUpdated_at(new Date());
 			device.setDevice_type(device_type);
 			device.setIs_activated("0");
-			device.setModel_id("T"+alias);
+			if (StringUtil.isEmpty(model_id)) {
+				device.setModel_id("T"+alias);				
+			}
+			device.setModel_id(model_id);
 			device.setDevice_id(device_id);
 			device.setDevice_key(RandomNumberGenerator.Key());
 			device.persist();
@@ -311,6 +315,16 @@ public class Device {
 		}
 		
 		
+	}
+
+
+
+
+	public static Device findModel_id(String model_id) {
+		Query query = Device.entityManager().createQuery("select o from Device o where o.model_id= ?",Device.class);
+		query.setParameter(1, model_id);
+		
+		return (Device) query.getResultList().get(0);
 	}
 	
 	

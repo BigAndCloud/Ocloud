@@ -38,7 +38,7 @@ $(document).ready(function() {
 </head>
 
 
-<frameset rows="80,*" cols="*" frameborder="no" border="1px"
+<frameset rows="100,*" cols="*" frameborder="no" border="1px"
 	noresize="false" resizable="no" framespacing="0" >
 	<frame src="<%=request.getContextPath()%>/frame/header" style="height: 200px"  name="topFrame"
 		noresize="noresize" id="topFrame" title="topFrame" scrolling="no" />
@@ -47,7 +47,7 @@ $(document).ready(function() {
 		<frame   src="<%=request.getContextPath()%>/frame/left" name="leftFrame" bordercolor="#00ffcc"
 			id="leftFrame" title="leftFrame" scrolling="auto"  />
 		<frame src="about:blank" name="context" id="context"
-			title="context" />
+			title="context"  />
 	</frameset>
 </frameset>
 </html>

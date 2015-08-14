@@ -13,14 +13,8 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/map1.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <script type="text/javascript">	
-
-
-
-
-
-
-
 <% 
 String errormsg = (String)request.getAttribute("errormsg");
 if(!StringUtil.isEmpty(errormsg)) {
@@ -35,22 +29,32 @@ $(document).ready(function() {
 }
 %>	
 function submint1(){
-	/* if($.trim($("#source_id").val())==""){
-		Dialog.alert("没有设备来源，请添加测试设备");
+ 	 if($.trim($("#name").val())==""){
+		Dialog.alert("请填写设备原型名称");
 		return;
-	}else */ if ($.trim($("#model_name").val())=="") {
-		Dialog.alert("请输入模块名称");
+	}else  if ($.trim($("#model_name").val())=="") {
+		Dialog.alert("请输入模型名称");
 		return;
 	}else if ($.trim($("#model_id").val())=="") {
-		Dialog.alert("请输入模块ID");
+		Dialog.alert("请输入模型ID");
 		return;
 	}else if ($.trim($("#picture").val())=="") {
 		Dialog.alert("请输入picture");
 		return;
-	}else if ($.trim($("#comment").val())=="") {
-		Dialog.alert("请输入备注");
+	}else if ($.trim($("#modelcomment").val())=="") {
+		Dialog.alert("请输入模型备注");
+		return;
+	}else  if ($.trim($("#alias").val())=="") {
+		Dialog.alert("请输入设备原型别名");
+		return;
+	}else  if ($.trim($("#alive_time").val())=="") {
+		Dialog.alert("请输入设备的活跃时间");
+		return;
+	}else  if ($.trim($("#alive_time").val())=="") {
+		Dialog.alert("请输入设备的活跃时间");
 		return;
 	}
+	 
 	if(!window.confirm("确定添加吗?")) {
 		return;
 	}
@@ -64,7 +68,9 @@ $(function () {
 });
 
 </script>	
+<style type="text/css">
 
+</style>
 </head>
 
 <body>
@@ -82,7 +88,8 @@ $(function () {
 			</tr>
 			<tr>
 				<td height="30" align="right" colspan="3">
-					<input id="vendor_id"  type="hidden" name="vendor_id" style="width: 200px" readonly="readonly"  onfocus="this.select();" value="${vendor.id}"/></td>
+					<input id="vendor_id"  type="hidden" name="vendor_id"value="${vendor.id}"/>
+					<input id="user_id"  type="hidden" name="user_id"  value="${user_id}"/></td>
 			<td></td>
 				<td height="30" align="right" colspan="3"></td>
 			</tr>
@@ -126,7 +133,8 @@ $(function () {
 			<td></td>
 				<td height="30" align="right">模板图片</td>
 				<td align="left" >
-				<input  id="picture" name="picture" type="file" value="${param.picture}"/>
+				<input  id="picture" name="picture" class="btn" type="file" value="${param.picture}"/>
+				
 				</td><td><span class="notnull" >必填</span></td>
 							
 			
@@ -143,7 +151,7 @@ $(function () {
 			<td height="30" align="right">设备地点</td>
 				<td align="left">
 			<input type="text" id="suggestId" value=""  style="width: 340px" class="input-xlarge" name="address" />
-                    <button class="btn" type="button" id="positioning">搜索</button>
+                    <button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" type="button" id="positioning">搜索</button>
              
                 <script src="http://api.map.baidu.com/api?key=D9S918lGOnIlK3PCUz4YRluN&v=1.1&services=true" type="text/javascript" type="text/javascript" /></script>
                
@@ -178,8 +186,8 @@ $(function () {
 				<td align="left">
 				<textarea rows="5" cols=""
 				style="width: 300px;"
-				id="comment" 
-				name="comment" 
+				id="modelcomment" 
+				name="modelcomment" 
 				onfocus="this.select();" >${param.comment}</textarea>
 					</td><td><span class="notnull" >必填</span></td>
 					<td></td>
@@ -187,8 +195,8 @@ $(function () {
 				<td align="left">
 				<textarea rows="5" cols=""
 				style="width: 300px;"
-				id="comment" 
-				name="comment" 
+				id="devicecomment" 
+				name="devicecomment" 
 				onfocus="this.select();" >${param.comment}</textarea>
 					</td><td><span class="notnull" >必填</span></td>
 			</tr>
@@ -196,12 +204,16 @@ $(function () {
 			
 		</tbody>
 	</table>
-	<table width="45%" cellspacing="0" cellpadding="2"	style="margin-top: 10px">
-		<tr>
-			<td align="center"><input type="button" value="生成设备模型 " class="inputButton" onclick="submint1()"></td>
+	<div style="border-top:  1px solid #D0D0D0; width: 100% ; float:right;" >
+	<table width="100%" style="margin-bottom:20px; border-top: 0px">
+			<tr>
+			 <td align="right" colspan="3"  style="border-top: 0px; " >
+			 <input style="cursor: pointer;" class="submit-big-gray" value="生成设备模型" type="button"onclick="submint1()"/>
+			<!-- <!-- <button class="submit-big-gray" style="cursor:pointer"onclick="submint1()" value="生成设备模型 ">生成设备模型 </button> --> -->
+			
 		</tr>
 	</table>
-	
+	</div>
 
 	</div>
 	

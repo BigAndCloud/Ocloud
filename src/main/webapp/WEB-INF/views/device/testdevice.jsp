@@ -8,9 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+
 <style type="text/css">
-button{ left:800px;}
+
 div.org{
 border:1px;
 border-color:red;
@@ -18,17 +18,23 @@ width:270px;
 margin-top:10px;
 margin-left:800px;
 float:right;
+
 };
 
 div.org1{
 position:absolute;
 top: 200px;
 };
+
+
 </style>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/jQuery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/map1.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
+
 <script type="text/javascript">	
 
 $(document).ready(function(){
@@ -104,19 +110,12 @@ $(function () {
 </head>
 
 <body>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<div class="sensor-div">
-<button style="">增加属性</button>
+
+<div class="submit-div">
+<button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" style="float: right;margin-right: 40px;">增加属性</button>
+
 <form action="<%=request.getContextPath()%>/device/testdevice" method="post"  id="form1">
-<div id="org"  class="org">
+<div id="org"  class="org" >
 <table cellspacing="0" cellpadding="2" class="dataTable" >
 		<tbody>
 			<tr class="dataTableHead">
@@ -176,7 +175,7 @@ $(function () {
 				<td height="30" align="right">设备地点</td>
 				<td align="left">
 			<input type="text" id="suggestId" value=""  style="width: 340px" class="input-xlarge" name="address" data-rule-required="true" />
-                    <button class="btn" type="button" id="positioning">搜索</button>
+                   <button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" type="button" id="positioning">搜索</button>
              
                 <script src="http://api.map.baidu.com/api?key=D9S918lGOnIlK3PCUz4YRluN&v=1.1&services=true" type="text/javascript" type="text/javascript" /></script>
                
@@ -199,16 +198,22 @@ $(function () {
 				onfocus="this.select();" >${param.comment}</textarea>
 					</td><td><span class="notnull" >必填</span></td>
 			</tr>
-		
+		<tr>
+		<td colspan="6" width="20px">&nbsp;</td>
+		</tr>
 			
 		</tbody>
-	</table>
-	<table width="45%" cellspacing="0" cellpadding="2"	style="margin-top: 10px">
-		<tr>
-			<td align="center"><input type="button" value="添加设备 " class="inputButton" onclick="submint1()"></td>
+</table>
+</form>
+<div style="border-top:  1px solid #D0D0D0; width: 60% ; float:right;" >
+<table width="80%" style="margin-top: 40px; margin-bottom:20px; border-top: 0px">
+			<tr>
+			 <td align="right" colspan="3"  style="border-top: 0px; " >
+			<button class="submit-big-gray" style="cursor:pointer"onclick="submint1()" value="添加设备 ">添加设备 </button>
+			
 		</tr>
 	</table>
-</form>
+	</div>
 </div>
 </body>
 </html>

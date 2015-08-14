@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
 
 <script type="text/javascript">
@@ -31,16 +32,19 @@ function getMsg() {
 </script>
 <%Users users= SessionUtil.getUsers(request); %>
 </head>
-<body >
-	<table id="_TableHeader" width="100%" border="0" cellpadding="0"
-		cellspacing="0" class="bluebg"
-		style="background:#3388bb url(<%=request.getContextPath() %>/images/vistaBlue.jpg) repeat-x left top;">
+<body  style="margin: 0px;background-color: #c0c0c0;" >
+<div >
+
+
+	<table id="_TableHeader" width="100%"   border="0" cellpadding="0"
+		cellspacing="0" class="bluebg" style="margin:10px; background-color:rgba(255,255,255,0.4);">
+		<!--style="background:#3388bb url(<%=request.getContextPath() %>/images/vistaBlue.jpg) repeat-x left top;"  -->
 		<tr>
 			<td height="80" valign="bottom">
 			<table height="80" border="0" cellpadding="0" cellspacing="0"
 				style="position:relative;">
 				<tr>
-					<td style="padding:0">&nbsp;&nbsp;&nbsp;&nbsp;<img src="<%=request.getContextPath() %>/images/logo.png"></td>
+					<td style="padding:0">&nbsp;&nbsp;&nbsp;&nbsp;<%-- <img src="<%=request.getContextPath() %>/images/logo.png"> --%></td>
 				</tr>
 			</table>
 			</td>
@@ -52,5 +56,6 @@ function getMsg() {
 			</td>
 		</tr>
 	</table>
+	</div>
 </body> 
 </html>

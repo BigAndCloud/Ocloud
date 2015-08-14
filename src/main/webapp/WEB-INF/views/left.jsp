@@ -11,9 +11,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css"> --%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<style type="text/css">
 
+.d_over{background-color:white;}
+.d_out{background-color:rgba(255,255,255,0.4);}
+li
+{
+	display:block;
+	text-align:right;	
+	 line-height:60px; /*设置垂直  */
+	border-color:black;
+	border:1px;
+	width:170px;
+	height:60px;
+background-color:rgba(255,255,255,0.4);
+}
+ul{
+margin: 0px;
+padding: 0px;
+
+}
+a{
+	height:200px;
+	width: 200px;
+	color: #555;
+	padding: 20px;
+}
+ul li a:link {
+text-decoration: none;
+
+}
+a:visited {
+text-decoration: none;
+
+}
+a:hover {
+text-decoration: none;
+}
+a:active {
+text-decoration: none;
+}
+
+
+</style>
 <title>Insert title here</title>
 
 <script type="text/javascript">
@@ -25,21 +67,26 @@ $(document).ready(function(){
 	for (var  i= 0; i < res.length; i++) {
 		var l= document.createElement('li');
 		var a= document.createElement('a');
+	
 		var li= s.appendChild(l); 
-		var ca= li.appendChild(a);
+		li.setAttribute("onmouseover","this.className='d_over'");
+		li.setAttribute("onmouseout","this.className='d_out'");
+		var ca = li.appendChild(a);
+		
 		ca.innerHTML=res[i].name;
 		ca.setAttribute("href",res[i].url);
 		ca.setAttribute("target",res[i].target)
+		
 	}
-	zNodes=${resources};
-	 $.fn.zTree.init($("#treeDemo"), setting, zNodes);
-	 var treeObj = $.fn.zTree.getZTreeObj("treeDemo"); 
-	 treeObj.expandAll(true); 
+
 });
 
 </script>   
 </head>
-<body style="border-right: 2px solid #B1B1AD; margin-left: 30px;">
+<!-- background="<%=request.getContextPath()%>/images/leftbg.jpg" -->
+<body style="background-color: #c0c0c0;margin-top: 0px;">
+ <!-- <div  ><a href="#" onmouseover="this.className='changes'" onmouseout="this.className='normal'">放上来就变色</a></div> -->
+
 	<ul id="res"></ul>
 </body>
 </html>
