@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/button.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/chatbg.css">
 <style type="text/css">
 .me{
@@ -54,10 +54,11 @@ function submint1(){
 <body>
 <div class="submit-div">
 	<form action="<%=request.getContextPath()%>/deviceModel/updateModelSubmitAudit" method="post" id="form1">
-	<table width="100%"  cellspacing="0" cellpadding="2" >
+	<table cellspacing="0" cellpadding="2"align="center" style="width: 100%;margin: 0px;padding: 0px; padding-top: 40px;">
 		<tbody>
-			<tr class="dataTableHead">
-				<td height="30" class="thOver" colspan="2" align="center"><strong>Ocloud 设备模型</strong>
+		<tr class="dataTableHead">
+				<td height="30" class="thOver" colspan="3" align="left"><strong>提交设备模型</strong>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;border-left:0;width:95%;">
 				</td>
 			</tr>
 			<tr>
@@ -171,13 +172,10 @@ function submint1(){
 		</tbody>
 	</table>
 	</form>
-	<table width="100%" cellspacing="0" cellpadding="2" style="margin-top: -1px; border-top: 0px" border="0px">
+	<table cellspacing="0" cellpadding="2" style=" width:100%;">
 			<tr>
-			 <td align="right" colspan="3" width="600px" style="border-top: 0px;"><!-- <input type="button" value="确认提交 "  class="inputButton" onclick="submint1()"> -->
-			<button class="pbtn3 btn15" style="cursor:pointer" type="button" onclick="submint1()">
-			
-			</button>
-			
+			 <td align="right" colspan="3">
+						<input class="submit-big-gray" type="button" style="cursor:pointer"onclick="submint1()" value="确认提交 "/>
 		</tr>
 	</table>
 	</div>

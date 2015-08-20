@@ -9,17 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
-<style type="text/css">
-input,button{
-	width: 150px;
-};
-.notnull{
-	color: red;
-};
-
-</style>		
+		
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <script type="text/javascript">	
 
 
@@ -75,7 +68,7 @@ function openinfo(name) {
 &nbsp;
 <div class="sensor-div">
 <form action="<%=request.getContextPath()%>/property/addproperty" method="post" id="form1">
-	<table width="90%" cellspacing="0" cellpadding="2" class="dataTable" bordercolor="red" border="1px" align="center">
+	<table width="100%" cellspacing="0" cellpadding="2" class="dataTable"  align="center">
 		<tbody>
 			<tr class="dataTableHead">
 				<td height="30" class="thOver" colspan="3" align="center"><strong>Ocloud 添加属性</strong>
@@ -94,14 +87,12 @@ function openinfo(name) {
 				<td align="left">
 					<input id="alias" name="alias" style="width: 200px"   onfocus="this.select();" value="${param.alias}"/></td><td><span class="notnull" >必填</span></td>
 			</tr>
-		
 		</tbody>
 	</table>
-	<HR style="FILTER: alpha(opacity=0,finishopacity=100,style=1)" width="100%" color=#987cb9 SIZE=3>
-	
-	<table width="45%" cellspacing="0" cellpadding="2"	style="margin-top: 10px">
+	<HR style="FILTER: alpha(opacity=0,finishopacity=100,style=1)" width="100%" color=#555 SIZE=3>
+	<table width="100%" cellspacing="0" cellpadding="2"	style="margin-top: 10px">
 		<tr>
-			<td align="right"  ><input type="button" value="添加 " class="inputButton" onclick="submint1()"></td>
+			<td align="right"  ><input type="button" value="添加 " style="cursor: pointer;" class="submit-big-gray" onclick="submint1()"></td>
 		</tr>
 	</table>
 </form>

@@ -14,6 +14,12 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/map.js"></script> 
 <script type="text/javascript"src="<%=request.getContextPath()%>/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
+<style type="text/css">
+.t1{
+position: absolute;
+}
+
+</style>
 </head>
 <script type="text/javascript">	
 <% 
@@ -36,41 +42,34 @@ $(document).ready(function() {
 // Y.Lei
 
 function addProperty(model_id){
-	var d = new Dialog("添加属性","property/addpropertyPage?model_id="+model_id,500,200);
+	var d = new Dialog("添加属性","property/addpropertyPage?model_id="+model_id,500,400);
 	d.show();
 }
 </script>
 <body>
+<!-- <table  class="t1" border="1px" cellpadding="0" cellspacing="0" style=" margin-left:50px;   height:100%;border-left-style:solid; border-bottom-style:none;border-right-style:none;border-top-style:none"></table> -->
 	<div class="sensor-div">
-	<table width="100%" cellspacing="0" cellpadding="0" border="0">
-		<tbody>
-			<tr>
-				<td style="padding: 2px 10px;">
-				
-				</td>
-			</tr>
-			<tr>
-				<td	style="padding-top: 2px; padding-left: 6px; padding-right: 6px; padding-bottom: 2px;">
-				<form action="<%=request.getContextPath()%>/device/findlist" method="post">
-					<table width="100%" cellspacing="0" border="1px" cellpadding="2"
-						class="dataTable">
+			<h2 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;测试设备原型列表</h2>
+			<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+
+				<form action="<%=request.getContextPath()%>/device/findlist" method="post" >
+					<table  align="center">
 						<tbody>
 						<tr class="dataTableHead">
-						<th width="15%" height="30" class="thOver">名称</th>
-						<th width="10%" height="30" class="thOver">时区</th>
-						<th width="10%" height="30" class="thOver">地点</th>
-						<th width="20%" height="30" class="thOver">描述</th>
-						<th width="10%" height="30" class="thOver">是否已接入</th>
-					<td width="15%" height="30" class="thOver">操作</td> 
-					
-						
+						<th>名称</th>
+						<th>时区</th>
+						<th>地点</th>
+						<th>描述</th>
+						<th>是否已接入</th>
+						<th>操作</th> 
 					</tr>
 							
 								<c:forEach items="${list}" var="device" varStatus="num">
 									<tr>
 										<td title="${device.name}${device.alias}" >
 										
-										<a href="<%=request.getContextPath()%>/device/indevice?id=${device.id}">${device.name}(${device.alias})</a></td>
+										<a href="<%=request.getContextPath()%>/device/getdevice?source_id=${device.device_id}">${device.name}(${device.alias})</a></td>
 										<td title="${device.timezone}">${device.timezone}</td>
 										
 										<td title="${device.site}">${device.site}</td>
@@ -80,11 +79,11 @@ function addProperty(model_id){
 										<c:if test="${device.is_activated == 0}"  >未接入</c:if>
 										<c:if test="${device.is_activated == 1}"  >已接入</c:if>
 										</td>
-										<td  >
+										<td class="operate" >
 									
-										<a href="<%=request.getContextPath()%>/device/indevice?id=${device.id}">编辑</a>
-										<c:if test="${'0' eq device.pros}"><a href="javascript:addProperty('${device.model_id}')">增加属性/通道</a></c:if>
-										<c:if test="${'1' eq device.pros}"><a href="<%=request.getContextPath()%>/property/propertylistPage?model_id=${device.model_id}">查看属性/通道</a></c:if>
+										<a  href="<%=request.getContextPath()%>/device/indevice?id=${device.id}">编辑</a>
+										<c:if test="${'0' eq device.pros}"><a  href="javascript:addProperty('${device.model_id}')">增加属性/通道</a></c:if>
+										<c:if test="${'1' eq device.pros}"><a  href="<%=request.getContextPath()%>/property/propertylistPage?model_id=${device.model_id}">查看属性/通道</a></c:if>
 										
 										
 										 </td>
@@ -98,11 +97,6 @@ function addProperty(model_id){
 						</tbody>
 					</table>
 					</form>
-				</td>
-			</tr>
-			
-		</tbody>
-	</table>
 	</div>
 </body>
 </html>

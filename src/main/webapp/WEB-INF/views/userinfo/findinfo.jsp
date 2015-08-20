@@ -64,30 +64,33 @@ function updateUsers(){
 
 </script>
 <body>
-<div class="sensor-div">
+<div class="submit-div" style="min-height: 100%;">
+
 	<form action="<%=request.getContextPath()%>/userinfo/findInfo" method="post">
-			<table border="2px" cellspacing="2px" cellpadding="2px">
+			<table cellspacing="2px" cellpadding="2px" align="center" style="height: 100%;min-height: 580px;">
 						<tbody>
-						<tr class="dataTableHead">
-						<td width="10%" height="30" class="thOver">账号</td>
-						<td width="10%" height="30" class="thOver">用户昵称</td>
-						<td width="10%" height="30" class="thOver">电话号码</td>
-						<td width="10%" height="30" class="thOver">联系地址</td>
-						<td width="10%" height="30" class="thOver">创建时间</td>
-						<td width="10%" height="30" class="thOver">操作</td>
-						
-					</tr>
-					
+						<tr>
+						<td colspan="2">
+							<h1 align="left" style="padding-left: 40px;">Ocloud 个人信息</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+						</td>
+						</tr>
 									<tr>
-										<td title="${dto.users.username}" >${dto.users.username}</td>
-										<td title="${dto.userinfo.nickname}">${dto.userinfo.nickname}</td>
-										<td title="${dto.userinfo.mobileId}">${dto.userinfo.mobileId}</td>
-										<td title="${dto.userinfo.address}" >${dto.userinfo.address}</td>
-										
-										<td title="${dto.userinfo.createdAt}">
+									
+										<td>账号</td><td title="${dto.users.username}" >${dto.users.username}</td>
+									</tr><tr>
+										<td>用户昵称</td><td title="${dto.userinfo.nickname}">${dto.userinfo.nickname}</td>
+									</tr><tr>
+										<td>电话号码</td><td title="${dto.userinfo.mobileId}">${dto.userinfo.mobileId}</td>
+									</tr><tr>
+										<td>联系地址</td><td title="${dto.userinfo.address}" >${dto.userinfo.address}</td>
+									</tr><tr>
+										<td>创建时间</td><td title="${dto.userinfo.createdAt}">
 										<fmt:formatDate value="${dto.userinfo.createdAt }" pattern="yyyy-MM-dd HH:mm:ss"/>
 										</td>
-										<td><a href="javascript:updateUser(${dto.userinfo.user_id})" target="context" >修改</a>
+									</tr><tr>
+										<td >操作</td><td class="operate"><a href="javascript:updateUser(${dto.userinfo.user_id})" target="context" >修改</a>
 										</td>
  									</tr>
  									

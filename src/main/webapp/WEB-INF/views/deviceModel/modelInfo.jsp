@@ -41,7 +41,7 @@ function submint1(){
 <body>
 <div class="sensor-div">
 	<form action="<%=request.getContextPath()%>/deviceModel/updateModelSubmitAudit" method="post" id="form1">
-	<table width="100%"  cellspacing="0" cellpadding="2" class="dataTable" border="1px" >
+	<table width="100%"  cellspacing="0" cellpadding="2" class="dataTable"align="center" >
 		<tbody>
 			<tr class="dataTableHead">
 				<td height="30" class="thOver" colspan="7"><strong>Ocloud 设备模型</strong>

@@ -37,21 +37,26 @@ $(document).ready(function() {
 </script>
 <body>
 	<div class="sensor-div">
-	
-					<table width="100%" cellspacing="0" cellpadding="2"
+	<h1 align="left" style="padding-left: 40px;">Device 信息</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+					<table width="100%" cellspacing="0" cellpadding="2" align="center"
 						class="dataTable">
 						<tbody>
 						<tr >
-						<th >名称</th><th >时区</th><th >地点</th><th >描述</th><th >创建时间</th><th >是否已接入</th><th>属性/通道</th>
 					</tr>
 									<tr>
-										<td title="${dto.device.name}${dto.device.alias}" >
-										<a href="">${dto.device.name}(${dto.device.alias})</a></td>
-										<td title="${dto.device.timezone}">${dto.device.timezone}</td>
-										<td title="${dto.device.site}">${dto.device.site}</td>
-										<td title="${dto.created_at}">${dto.created_at}</td>
-										<td title="${dto.device.comment}">${dto.device.comment}</td>
-										<td title="${dto.device.is_activated}" >
+										<td>名称</td><td>${dto.device.name}(${dto.device.alias})</td>
+									</tr><tr>	
+										<td>时区</td> <td >${dto.device.timezone}</td>
+									</tr><tr>
+										<td>地点</td><td >${dto.device.site}</td>
+									</tr><tr>	
+										<td>创建时间</td><td>${dto.created_at}</td>
+									</tr><tr>	
+										<td>描述</td><td>${dto.device.comment}</td>
+										</tr><tr>
+										<td>是否已接入</td><td>
 										<c:if test="${dto.device.is_activated == 0}"  >未接入</c:if>
 										<c:if test="${dto.device.is_activated == 1}"  >已接入</c:if>
 										</td>
@@ -62,13 +67,13 @@ $(document).ready(function() {
 						</tbody>
 					</table>
 					
-					<table>
-					<tr >
-				<td align="left"colspan="5"><strong>设备属性</strong>
-				</td>
-			</tr>
+					<h1 align="left" style="padding-left: 40px;">设备属性</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+					<table align="center">
+					
 						<tr >
-						<th >属性名称别名</th><th >创建时间</th>
+						<td>属性名称别名</td><td>创建时间</td>
 					</tr>
 					<c:forEach items="${dto.property}" var="pro">
 					<tr>

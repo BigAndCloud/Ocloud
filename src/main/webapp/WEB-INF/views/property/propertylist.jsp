@@ -44,7 +44,7 @@ $(document).ready(function() {
 //var d = new Dialog("添加通道", "channel/addchannel?channel_type="+channel_type+"&property_id"), 400, 300)
 function addproperty() {
 	
-	var d = new Dialog("添加属性", "property/addpropertyPage", 500, 200);
+	var d = new Dialog("添加属性", "property/addpropertyPage", 500, 400);
 	d.show();
 }
 
@@ -74,12 +74,12 @@ function updateproperty(id){
 
 <body>
 <div class="sensor-div">
-<form action="<%=request.getContextPath()%>/property/propertylist" method="post" id="form1">
+<form action="<%=request.getContextPath()%>/property/propertylistPage" method="post" id="form1">
 	
 	
-	<table width="60%" id="t" cellspacing="0" cellpadding="2" class="dataTable" border="2px" bordercolor="blue">
+	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" border="2px" bordercolor="blue">
 		<tbody>
-		<tr class="dataTableHead">
+		<tr>
 				<td height="30" class="thOver" colspan="2" align="left"><strong>属性列表</strong>
 				</td>
 				<td colspan="1">
@@ -88,9 +88,9 @@ function updateproperty(id){
 			</tr>
 				<tr class="dataTableHead">
 					
-					<td width="10%" height="30" class="thOver">属性名称，别名</td>
-					<td width="15%" height="30" class="thOver">创建时间</td>
-					<td width="15%" height="30" class="thOver">操作</td> 
+					<td >属性名称，别名</td>
+					<td >创建时间</td>
+					<td >操作</td> 
 					
 						
 					</tr>					

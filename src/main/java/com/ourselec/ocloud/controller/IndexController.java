@@ -100,7 +100,7 @@ public ModelAndView index(ModelAndView view
 		view.addObject("resources", json);
 		}
 		view.addObject("errormsg", errormsg);
-		
+		view.addObject("user", user);
 		view.setViewName("left");
 		return view;	
 		

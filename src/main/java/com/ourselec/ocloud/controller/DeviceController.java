@@ -119,19 +119,20 @@ public class DeviceController {
 		logger.info("/device/findlist");
 		
 		String user_id = SessionUtil.getUsers(request).getUserid();
-//		List<Device>  list = Device.findByUserid(user_id);
+		List<Device>  list = Device.findByUserid(user_id);
 		
-	List<Map<String, Object>>	map =dao.findDevicePrototype(user_id);
-		
-		if (map!=null) {
+	//List<Map<String, Object>>	map =dao.findDevicePrototype(user_id);
+			List<DeviceDTO> listdto = new ArrayList<DeviceDTO>();
+	if (list!=null) {
+	
+		for (Device device : list) {
+			DeviceDTO dto = new DeviceDTO();
+			dto= AssembleDTO.assembleDeviceDTO(device);
+			listdto.add(dto);
+		}
 
-			for (Map<String, Object> device : map) {
-				System.out.println(device.get("device_id"));
-				System.out.println(device.get("name"));
-				
-			}
-				
-		}view.addObject("list", map);
+	}	
+		view.addObject("list", listdto);
 		view.addObject("errormsg", errormsg);
 		view.setViewName("device/findlist");
 		return view;

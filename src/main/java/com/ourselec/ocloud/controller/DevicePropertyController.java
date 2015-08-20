@@ -8,14 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ourselec.ocloud.controller.dto.PropertyDTO;
-import com.ourselec.ocloud.domain.DeviceModelRange;
 import com.ourselec.ocloud.domain.DeviceProperty;
 import com.ourselec.ocloud.domain.PropertyChannel;
 import com.ourselec.ocloud.service.AssembleDTO;
@@ -157,13 +155,15 @@ public class DevicePropertyController {
 		return view;
 	}
 	
-	@RequestMapping("/propertylist")
+/*	@RequestMapping("/propertylist")
 	public ModelAndView propertyList(ModelAndView view
 			, HttpServletRequest request
 			) {
 		String user_id=	SessionUtil.getUsers(request).getUserid();
 			String errormsg = "查询成功";
 			List<DeviceProperty> list = DeviceProperty.findList(user_id);
+			
+			
 			if (list==null) {
 				errormsg = "没有数据,您可以现在添加 属性";
 				view.addObject("errormsg", errormsg);
@@ -172,7 +172,7 @@ public class DevicePropertyController {
 			view.addObject("list", list);
 			view.setViewName("property/propertylist");
 		return view;
-	}
+	}*/
 	
 	@RequestMapping("/getProChan")
 	public GridData<PropertyChannel> getProChan(

@@ -9,20 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
-<style type="text/css">
-input,button{
-	width: 150px;
-};
-.notnull{
-	color: red;
-};
-
-</style>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/jQuery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/map/map.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/timezone.js"></script>	
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <script type="text/javascript">	
 
 
@@ -98,19 +90,16 @@ $(function () {
 </head>
 
 <body>
-<div class="sensor-div">
+<div class="submit-div">
 <form action="<%=request.getContextPath()%>/device/updatedevice" method="post" id="form1">
-	<table width="50%" cellspacing="0" cellpadding="2" class="dataTable">
+	<table width="100%" cellspacing="0" cellpadding="2" class="dataTable">
 		<tbody>
 			<tr class="dataTableHead">
 				<td height="30" class="thOver" colspan="2" align="center"><strong>Ocloud 添加设备</strong>
-				</td>
-			</tr>
-			<tr>
-			<td height="30" align="right">
 				<input id="id" name="id"  type="hidden" value="${device.id}" style="width:200px" />
 				</td>
 			</tr>
+			
 			<tr>
 				
 				<td height="30" align="right">设备名称</td>
@@ -126,7 +115,7 @@ $(function () {
 				<td height="30" align="right">活跃时间</td>
 				<td align="left">
 			
-					<input id="alive_time" name="alive_time" style="width: 50px"   onfocus="this.select();" value="${device.alive_time}"/>&nbsp;分钟</td><td><span  >&nbsp;</span></td>
+					<input id="alive_time" name="alive_time" style="width: 50px"   onfocus="this.select();" value="${device.alive_time}"/>&nbsp;分钟</td>
 			</tr>
 			<tr>
 				<td height="30" align="right">设备时区</td>
@@ -174,9 +163,10 @@ $(function () {
 			
 		</tbody>
 	</table>
-	<table width="45%" cellspacing="0" cellpadding="2"	style="margin-top: 10px">
+<br/>
+	<table width="100%" cellspacing="0" cellpadding="2"	style="margin-top: 10px ;border-top:  1px solid #D0D0D0;">
 		<tr>
-			<td align="center"><input type="button" value="修改设备 " class="inputButton" onclick="submint1()"></td>
+			<td align="right"><input type="button" value="修改设备 " style="cursor: pointer;" class="submit-big-gray" onclick="submint1()"></td>
 		</tr>
 	</table>
 </form>

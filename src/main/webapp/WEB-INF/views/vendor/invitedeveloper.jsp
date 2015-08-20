@@ -11,8 +11,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">
 <style type="text/css">
-input,button{
+ input,button{
 	width: 150px;
 };
 .notnull{
@@ -90,7 +91,7 @@ function submint1(){
 </table>
 <div id="org"  class="org">
 
-	<table  cellspacing="0" id="t" cellpadding="2"  bordercolor="red" border="1px" >
+	<table  cellspacing="0" id="t" cellpadding="2" width="100%">
 		<tbody>
 			<tr>
 				<td height="30" align="right">邀请用户邮箱</td>
@@ -102,12 +103,12 @@ function submint1(){
 	</table>
 </div >
 </form>
-<div id="org1" class="org1" ></div>
-<table width="45%" cellspacing="0" cellpadding="2">
-	<tr>
-	<td> <input type="button" onclick="addproperty()"  value="增加邀请用户" />
+<div id="org1"  class="org1" ></div>
+<table cellspacing="0" cellpadding="2" width="100%">
+	<tr >
+	<td> <input type="button" class="submit-big-gray" style="cursor:pointer" onclick="addproperty()"  value="增加邀请用户" />
 	</td><td>
-	<input type="button" value="确认提交 " class="inputButton" onclick="submint1()"></td>
+	<input type="button" value="确认提交 " class="submit-big-gray" style="cursor:pointer"onclick="submint1()"></td>
 	</tr>
 </table>
 </div>

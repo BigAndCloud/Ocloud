@@ -53,32 +53,30 @@ $(document).ready(function() {
 <br>
 <br>
 <div class="sensor-div">
+	<h1 align="left" style="padding-left: 40px;">模型列表</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+           <br/>
 <form action="<%=request.getContextPath()%>/deviceModel/modelListDeve" method="post" id="form1">
 	
 	
-	<table width="100%"  cellpadding="2">
+	<table width="100%"  cellpadding="2" align="center">
 		<tbody>
-		<tr >
-				<td colspan="5" align="left"><strong>属性列表</strong>
-				</td>
-			</tr>
-				<tr >
+				<tr class="dataTableHead">
 					
 					<th >模板名称，ID</th>
-					<th >模板图片地址</th>
+				<!-- 	<th >模板图片地址</th> -->
 					<th >接入/规划数量</th>
 					<th >状态</th>
-					
-						
 					</tr>					
 				<c:forEach items="${list}" var="dto" varStatus="num">
 				<tr>
 				
 					<td title="进入审批提交页面" >
 					<a href="<%=request.getContextPath()%>/deviceModel/modelInfo?model_id=${dto.model.model_id}">${dto.model.model_name}(${dto.model.model_id})</a></td>
-					<td title="${dto.model.picture}" ><img alt="" src="${dto.model.picture}">${dto.model.picture}</td>
+					<%-- <td title="${dto.model.picture}" ><img alt="" src="${dto.model.picture}">${dto.model.picture}</td> --%>
 					<td title="" ></td>
-					<td title="${dto.model.audit_status}" align="left">
+					<td title="${dto.model.audit_status}" align="center" class="operate" >
 					<c:if test="${dto.model.audit_status == 3}"  ><span style="color: red">模板已生成</span><a href="<%=request.getContextPath()%>/deviceModel/toupdateModelSubmitAudit?id=${dto.model.id}">(提交审批)</a></c:if>
 					<c:if test="${dto.model.audit_status == 0}"  ><span style="color: red">已提交审批</span></c:if>
 					<c:if test="${dto.model.audit_status == 1}"  ><span style="color: red">审批驳回</span>(${dto.DMAC.audit_comment})<a href="<%=request.getContextPath()%>/deviceModel/toupdateModelSubmitAudit?id=${dto.model.id}">(重新提交)</a></c:if>

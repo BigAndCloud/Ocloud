@@ -33,18 +33,13 @@ $(document).ready(function() {
 </script>
 <body>
 	<div class="sensor-div">
-	<table width="100%" cellspacing="0" cellpadding="0" border="0" >
-		<tbody>
-			<tr>
-				<td style="padding: 2px 10px;">
-				
-				</td>
-			</tr>
-			<tr>
-				<td	style="padding-top: 2px; padding-left: 6px; padding-right: 6px; padding-bottom: 2px;">
+	<h1 align="left" style="padding-left: 40px;">Ocloud 消息列表</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+           <br/>
 				<form action="<%=request.getContextPath()%>/msg/msglist" method="post">
 					<table width="100%" cellspacing="0" cellpadding="2"
-						class="dataTable" border="1px">
+						class="dataTable"  align="center">
 						<tbody>
 						<tr class="dataTableHead">
 						<th width="10%" height="30" class="thOver">发送人</th>
@@ -79,7 +74,7 @@ $(document).ready(function() {
 										</td>
 										<td title="${msg.msg_type}" >${msg.msg_type}</td>
 										<td title="${msg.msg_theme}">${msg.msg_theme}</td>
-										<td><a href="<%=request.getContextPath()%>/msg/inmsg?msg_id=${msg.msg_id}&msg_type=${msg.msg_type}&msg_sender=${msg.msg_sender}&msg_recipient=${msg.msg_recipient}">查看详情</a></td>
+										<td class="operate"><a href="<%=request.getContextPath()%>/msg/inmsg?msg_id=${msg.msg_id}&msg_type=${msg.msg_type}&msg_sender=${msg.msg_sender}&msg_recipient=${msg.msg_recipient}">查看详情</a></td>
  									</tr>
 								</c:forEach>
 								
@@ -89,11 +84,7 @@ $(document).ready(function() {
 						</tbody>
 					</table>
 					</form>
-				</td>
-			</tr>
-			
-		</tbody>
-	</table>
+
 	</div>
 </body>
 </html>

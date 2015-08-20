@@ -51,7 +51,7 @@ $(document).ready(function() {
 <form action="<%=request.getContextPath()%>/deviceModel/modelListDeve" method="post" id="form1">
 	
 	
-	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" border="2px" bordercolor="blue">
+	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" align="center">
 		<tbody>
 		<tr class="dataTableHead">
 				<td height="30" class="thOver" colspan="5" align="left"><strong>属性列表</strong>

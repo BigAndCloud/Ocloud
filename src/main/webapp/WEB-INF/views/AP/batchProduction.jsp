@@ -11,8 +11,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
+
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>	
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>		
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/buttons.css">	
 <script type="text/javascript">	
 <% 
 String errormsg = (String)request.getAttribute("errormsg");
@@ -112,10 +114,8 @@ function getRange(){
 		<table width="100%" cellspacing="0" cellpadding="2" style="margin-top: -1px; border-top: 0px" border="0px">
 			<tr>
 			 <td align="right" colspan="3"  style="border-top: 0px;">
-			<button class="submit-gray" style="cursor:pointer" type="button" onclick="submint1()" value="确认提交">确认提交
-			
-			</button>
-			
+			<!-- <button class="submit-gray" style="cursor:pointer" type="button" onclick="submint1()" value="确认提交">确认提交</button> -->
+			<input style="cursor: pointer;" class="submit-gray" value="确认提交" type="button"onclick="submint1()"/>
 		</tr>
 	</table>
 		</div>

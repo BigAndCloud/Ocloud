@@ -64,6 +64,7 @@ function getAPDevice(Url,model_id,range_id){
 	function loadGrid(Url,model_id,range_id){  
 		$('#cgdata').datagrid({
 			width:'620px',
+			align:'center',
 			url:Url+'/device/getAPDevice?model_id='+model_id+'&range_id='+range_id,
 		    method: 'POST',
 		    loadMsg:'数据加载中请稍后……',  

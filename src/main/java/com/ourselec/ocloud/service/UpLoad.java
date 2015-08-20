@@ -85,7 +85,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp)
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			}
+		}
 		DeviceModel model = new DeviceModel();
 		model.addModel(map);
 		

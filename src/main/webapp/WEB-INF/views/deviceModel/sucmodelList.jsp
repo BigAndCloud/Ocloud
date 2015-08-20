@@ -52,15 +52,15 @@ function addProperty(model_id){
 
 <body>
 <div class="sensor-div">
+	<h1 align="left" style="padding-left: 40px;">审核成功的设备模板列表</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+           <br/>
 <form action="<%=request.getContextPath()%>/deviceModel/modelListDeve" method="post" id="form1">
 	
 	
-	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" border="2px" bordercolor="blue">
+	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" align="center">
 		<tbody>
-		<tr class="dataTableHead">
-				<td colspan="10" align="left"><strong>审核成功的设备模板列表</strong>
-				</td>
-			</tr>
 				<tr class="dataTableHead">
 					
 					<td>模板名称，ID</td>

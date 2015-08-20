@@ -8,7 +8,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<style type="text/css">
+html { overflow: hidden; }
+body{font-size: 16px;}
+#_TableHeader  a {
+  /*   color: #c6c6c6; */
+    display: inline-block;
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0px;
+}
+a {
+   /*  color: #333; */
+   color: #888;	
+    cursor: pointer;
+    outline: medium none;
+    text-decoration: none;
+}
 
+a:hover{
+	
+	color: #ffffff;
+	text-decoration: none;
+}
+</style>
 <script type="text/javascript">
 function changePassword() {
 	window.parent.content.location = "<%=request.getContextPath() %>/frame/blank";
@@ -32,24 +56,27 @@ function getMsg() {
 </script>
 <%Users users= SessionUtil.getUsers(request); %>
 </head>
-<body  style="margin: 0px;background-color: #c0c0c0;" >
+<body  style="margin: 0px;background:#f0f3f4 none repeat scroll 0 0;" >
 <div >
 
 
 	<table id="_TableHeader" width="100%"   border="0" cellpadding="0"
-		cellspacing="0" class="bluebg" style="margin:10px; background-color:rgba(255,255,255,0.4);">
+		cellspacing="0" class="bluebg" style="margin:0; background-color:black;">
 		<!--style="background:#3388bb url(<%=request.getContextPath() %>/images/vistaBlue.jpg) repeat-x left top;"  -->
 		<tr>
 			<td height="80" valign="bottom">
-			<table height="80" border="0" cellpadding="0" cellspacing="0"
+			<table height="80"  cellpadding="0" cellspacing="0"
 				style="position:relative;">
 				<tr>
-					<td style="padding:0">&nbsp;&nbsp;&nbsp;&nbsp;<%-- <img src="<%=request.getContextPath() %>/images/logo.png"> --%></td>
+					<td style="padding:0; width: 250px;"align="right" ><span style="font-size: 40px; color: white;font-weight:bold;">OCloud</span>
+					
+					
+					<%-- <img src="<%=request.getContextPath() %>/images/logo.png"> --%></td>
 				</tr>
 			</table>
 			</td>
 			<td valign="bottom">
-			<div style="text-align:right; margin:0 20px 15px 0;">当前用户：<b><%=users.getUsername() %></b>
+			<div style="text-align:right; margin:0 20px 15px 0;"><a>当前用户：<%=users.getUsername() %></a>
 			&nbsp;[&nbsp;<a href="javascript:void(0);"
 				onClick="logout();">退出登录</a> | <a
 				href="javascript:changePassword();">修改密码</a> ]&nbsp;<a	href="<%=request.getContextPath()%>/msg/getmsg"  target="context">消  息(${count})</a></div>

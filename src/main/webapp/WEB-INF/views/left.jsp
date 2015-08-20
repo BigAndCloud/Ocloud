@@ -2,6 +2,8 @@
 <%@page import="com.ourselec.ocloud.controller.dto.RescourceDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Set"%> --%>
+<%@page import="com.ourselec.ocloud.util.SessionUtil"%>
+<%@page import="com.ourselec.ocloud.domain.Users"%>
 <%@page import="com.ourselec.ocloud.domain.power.Tresources"%>
 <%@page import="java.math.BigDecimal"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,44 +16,46 @@
 <%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/default.css"> --%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
 <style type="text/css">
-
-.d_over{background-color:white;}
-.d_out{background-color:rgba(255,255,255,0.4);}
+html { overflow: hidden;  font: 14px "Microsoft YaHei",Helvetica,Arial,sans-serif; }
+.d_over{background:#f0f3f4 none repeat scroll 0 0;}
+.d_out{background:white; }
+.w1{background:white;}
+.w2{background:#f0f3f4 none repeat scroll 0 0;}
 li
 {
 	display:block;
-	text-align:right;	
-	 line-height:60px; /*设置垂直  */
+	text-align:left;	
+	line-height:40px; /*设置垂直  */
 	border-color:black;
 	border:1px;
-	width:170px;
-	height:60px;
-background-color:rgba(255,255,255,0.4);
+	width:190px;
+	height:40px;
+	padding:0px;
+	background-color:white;
 }
 ul{
-margin: 0px;
-padding: 0px;
-
+	margin: 0px;
+	padding: 0px;
+	padding-top: 30px;
+	padding-bottom: 500px;
 }
 a{
-	height:200px;
-	width: 200px;
+	height:40px;
+	width: 150px;
 	color: #555;
 	padding: 20px;
 }
 ul li a:link {
-text-decoration: none;
-
+	text-decoration: none;
 }
 a:visited {
-text-decoration: none;
-
+	text-decoration: none;
 }
 a:hover {
-text-decoration: none;
+	text-decoration: none;
 }
 a:active {
-text-decoration: none;
+	text-decoration: none;
 }
 
 
@@ -69,8 +73,9 @@ $(document).ready(function(){
 		var a= document.createElement('a');
 	
 		var li= s.appendChild(l); 
-		li.setAttribute("onmouseover","this.className='d_over'");
-		li.setAttribute("onmouseout","this.className='d_out'");
+		li.setAttribute("class","w1");
+	/* 	li.setAttribute("onmouseover","this.className='d_over'");
+		li.setAttribute("onmouseout","this.className='d_out'"); */
 		var ca = li.appendChild(a);
 		
 		ca.innerHTML=res[i].name;
@@ -79,14 +84,24 @@ $(document).ready(function(){
 		
 	}
 
+	  $(".w1").click(function(){
+	       $(this).removeClass("w1");
+	       $(this).addClass("w2");
+	       $(this).siblings().removeClass("w2");
+	       $(this).siblings().addClass("w1");
+	   });
 });
 
 </script>   
+<%Users users= SessionUtil.getUsers(request); %>
 </head>
-<!-- background="<%=request.getContextPath()%>/images/leftbg.jpg" -->
-<body style="background-color: #c0c0c0;margin-top: 0px;">
+<body style="background:#f0f3f4 none repeat scroll 0 0; margin: 0px;padding: 0px;">
  <!-- <div  ><a href="#" onmouseover="this.className='changes'" onmouseout="this.className='normal'">放上来就变色</a></div> -->
-
+<div class="div" style="height:1000px;width: 190px;margin-left:20px; background-color: white;" >
+<br/><br/>
+&nbsp;&nbsp;&nbsp;<strong style="font-size: 16px; color:#00a3e0; "><%=users.getUsername() %></strong>
+<hr style="border:1px dashed #c0c0c0;margin-top:22px; border-bottom:0;border-right:0;border-left:0;width:95%;">
 	<ul id="res"></ul>
+</div>
 </body>
 </html>

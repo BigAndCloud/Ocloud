@@ -111,51 +111,45 @@ $(function () {
 
 <body>
 
-<div class="submit-div">
-<button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" style="float: right;margin-right: 40px;">增加属性</button>
+<div class="submit-div" style="width: 90%">
+<button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" style="float: right; margin-top: 50px;margin-right: 150px;">增加属性</button>
 
 <form action="<%=request.getContextPath()%>/device/testdevice" method="post"  id="form1">
 <div id="org"  class="org" >
-<table cellspacing="0" cellpadding="2" class="dataTable" >
-		<tbody>
-			<tr class="dataTableHead">
-				<td height="30" class="thOver" colspan="2" align="center"><strong>Ocloud 添加属性</strong>
-				</td>
-			</tr>
-			
+<table cellspacing="0" cellpadding="2" align="right" style="width: 100%; margin: 0px;padding: 0px;" >
 			<tr>
 				<td>属性名称</td>
 				<td align="left">
-					<input id="porname" name="porname" style="width: 200px"   onfocus="this.select();"/></td>
+					<input id="porname" name="porname" width="200px;"   onfocus="this.select();"/></td>
 			</tr>
 			<tr>
 				<td>属性别名</td>
 				<td align="left">
-					<input id="poralias" name="poralias" style="width: 200px"   onfocus="this.select();" /></td>
+					<input id="poralias" name="poralias" width="200px;"  onfocus="this.select();" /></td>
 			</tr>
-		
-		</tbody>
+	
 	</table>
 
 </div >
 <div id="org1" class="org1" ></div>
-
-	<table width="60%" cellspacing="0" cellpadding="2" class="dataTable" >
+	
+	<table cellspacing="0" cellpadding="2"align="center" style="width: 100%;margin: 0px;padding: 0px; padding-top: 40px;" >
 		<tbody>
 			<tr class="dataTableHead">
-				<td height="30" class="thOver" colspan="2" align="center"><strong>Ocloud 添加设备</strong>
+				<td height="30" class="thOver" colspan="2" align="left"><strong>Ocloud 添加设备</strong>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;border-left:0;width:95%;">
 				</td>
 			</tr>
 			
 			<tr>
 				<td height="30" align="right">设备名称</td>
 				<td align="left">
-					<input id="name" name="name" style="width: 200px"   onfocus="this.select();" value="${param.name}"/></td><td><span class="notnull" >必填</span></td>
+					<input id="name" name="name" style="width: 200px"   onfocus="this.select();" value="${param.name}"/>
 			</tr>
 			<tr>
 				<td height="30" align="right">设备别名</td>
 				<td align="left">
-					<input id="alias" name="alias" style="width: 200px"   onfocus="this.select();" value="${param.alias}"/></td><td><span class="notnull" >必填</span></td>
+					<input id="alias" name="alias" style="width: 200px"   onfocus="this.select();" value="${param.alias}"/>
 			</tr>
 			<tr>
 				<td height="30" align="right">活跃时间</td>
@@ -169,7 +163,7 @@ $(function () {
 				<select id="timezone" name="timezone" title="timezone">
 				<option value="Asia/shanghai">(GMT+8:00) 北京，重庆，香港，乌鲁木齐</option>
 				</select>
-				</td><td><span class="notnull" >必填</span></td>
+				
 			</tr>
 			<tr>
 				<td height="30" align="right">设备地点</td>
@@ -186,7 +180,7 @@ $(function () {
                     <input type="text" id="lng" name="lng" value="${param.lng}" /><input type="text" id="lat" value="${param.lat}" name="lat" />
 			
 			
-			</td><td><span class="notnull" >必填</span></td>
+			
 			</tr>
 			<tr>
 				<td height="30" align="right">备注</td>
@@ -196,7 +190,7 @@ $(function () {
 				id="comment" 
 				name="comment" 
 				onfocus="this.select();" >${param.comment}</textarea>
-					</td><td><span class="notnull" >必填</span></td>
+					
 			</tr>
 		<tr>
 		<td colspan="6" width="20px">&nbsp;</td>
@@ -205,15 +199,13 @@ $(function () {
 		</tbody>
 </table>
 </form>
-<div style="border-top:  1px solid #D0D0D0; width: 60% ; float:right;" >
-<table width="80%" style="margin-top: 40px; margin-bottom:20px; border-top: 0px">
+	<table cellspacing="0" cellpadding="2" style=" width:100%;">
 			<tr>
-			 <td align="right" colspan="3"  style="border-top: 0px; " >
-			<button class="submit-big-gray" style="cursor:pointer"onclick="submint1()" value="添加设备 ">添加设备 </button>
-			
+			 <td align="right" colspan="3">
+						<input class="submit-big-gray" type="button" style="cursor:pointer"onclick="submint1()" value="添加设备 "/>
 		</tr>
 	</table>
-	</div>
+
 </div>
 </body>
 </html>
