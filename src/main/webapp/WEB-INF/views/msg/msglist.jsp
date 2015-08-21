@@ -45,7 +45,6 @@ $(document).ready(function() {
 						<th width="10%" height="30" class="thOver">发送人</th>
 						<th width="10%" height="30" class="thOver">接收人</th>
 						<th width="15%" height="30" class="thOver">发送时间</th>
-						<th width="15%" height="30" class="thOver">接收时间</th>
 						<th width="10%" height="30" class="thOver">消息状态</th>
 						<th width="10%" height="30" class="thOver">消息类型</th>
 						<th width="20%" height="30" class="thOver">消息主题</th>
@@ -61,10 +60,6 @@ $(document).ready(function() {
 
 										<td title="${msg.send_at}" >
 										<fmt:formatDate value="${msg.send_at }" pattern="yyyy-MM-dd HH:mm:ss"/>
-										</td>
-										
-										<td title="${msg.receive_at}">
-										<fmt:formatDate value="${msg.receive_at }" pattern="yyyy-MM-dd HH:mm:ss"/>
 										</td>
 										<td title="${msg.msg_status}" >
 										<c:if test="${msg.msg_status == 0}"  >已发送</c:if>

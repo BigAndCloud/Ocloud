@@ -15,10 +15,9 @@ div.org{
 border:1px;
 border-color:red;
 width:270px;
-margin-top:10px;
-margin-left:800px;
-float:right;
-
+position: absolute; 
+left: 800px;
+top: 100px;
 };
 
 div.org1{
@@ -38,29 +37,35 @@ top: 200px;
 <script type="text/javascript">	
 
 $(document).ready(function(){
-		var o = document.getElementById("org1");
+/* 		var o = document.getElementById("org1");
 	  $("button").click(function(){
 	    $("#org1").before($("#org").clone());
 	   
 	  });
 	  $("p").click(function(){
 	    $(this).animate({fontSize:"+=1px"});
-	  });
+	  }); */
 	});
-
+var x = 1;
 function addproperty(){
-	var input1 = document.createElement('input');
+/* 	var input1 = document.createElement('input');
     input1.setAttribute('type', 'text');
     input1.setAttribute('name', 'organizers[]');
     input1.setAttribute('class', 'git');
     
     var btn1 = document.getElementById("org");
-    btn1.insertBefore(input1,null);
+    btn1.insertBefore(input1,null); */
+    
+    
+    
+    if(x>=6){
+    	alert("首次添加属性上线为6个!")
+    }else{
+    	$('#t').append('<tr><td>属性名称</td><td align="left"><input id="porname" name="porname" width="200px;"   onfocus="this.select();"/></td></tr><tr><td>属性别名</td><td align="left"><input id="poralias" name="poralias" width="200px;"  onfocus="this.select();" /></td></tr>');
+    	 x=x+1;
+    }
+   
 };
-
-
-
-
 <% 
 String errormsg = (String)request.getAttribute("errormsg");
 if(!StringUtil.isEmpty(errormsg)) {
@@ -112,21 +117,13 @@ $(function () {
 <body>
 
 <div class="submit-div" style="width: 90%">
-<button class="btn" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" style="float: right; margin-top: 50px;margin-right: 150px;">增加属性</button>
+<button class="btn" onclick="addproperty()" onmouseover="this.className='d_over'" onmouseout="this.className='d_out'" style="float: right; position: absolute; margin-top: 50px;">增加属性</button>
 
 <form action="<%=request.getContextPath()%>/device/testdevice" method="post"  id="form1">
 <div id="org"  class="org" >
-<table cellspacing="0" cellpadding="2" align="right" style="width: 100%; margin: 0px;padding: 0px;" >
-			<tr>
-				<td>属性名称</td>
-				<td align="left">
-					<input id="porname" name="porname" width="200px;"   onfocus="this.select();"/></td>
-			</tr>
-			<tr>
-				<td>属性别名</td>
-				<td align="left">
-					<input id="poralias" name="poralias" width="200px;"  onfocus="this.select();" /></td>
-			</tr>
+<table id="t" cellspacing="0" cellpadding="2" align="right" style="width: 100%; margin: 0px;padding: 0px;" >
+			<tr><td>属性名称</td><td align="left"><input id="porname" name="porname" width="200px;"   onfocus="this.select();"/></td></tr>
+			<tr><td>属性别名</td><td align="left"><input id="poralias" name="poralias" width="200px;"  onfocus="this.select();" /></td></tr>
 	
 	</table>
 
@@ -205,7 +202,6 @@ $(function () {
 						<input class="submit-big-gray" type="button" style="cursor:pointer"onclick="submint1()" value="添加设备 "/>
 		</tr>
 	</table>
-
 </div>
 </body>
 </html>

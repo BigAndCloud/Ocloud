@@ -48,19 +48,19 @@ $(document).ready(function() {
 
 <body>
 <div class="sensor-div">
+	<h1 align="left" style="padding-left: 40px;">Ocloud 模型列表</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
+           <br/>
 <form action="<%=request.getContextPath()%>/deviceModel/modelListDeve" method="post" id="form1">
 	
 	
 	<table width="100%" id="t" cellspacing="0" cellpadding="2" class="dataTable" align="center">
 		<tbody>
-		<tr class="dataTableHead">
-				<td height="30" class="thOver" colspan="5" align="left"><strong>属性列表</strong>
-				</td>
-			</tr>
 				<tr class="dataTableHead">
 					
-					<td width="10%" height="30" class="thOver">模板名称，ID</td>
-					<td width="10%" height="30" class="thOver">模板图片地址</td>
+					<td width="10%" height="30" class="thOver">模型名称，ID</td>
+					<td width="10%" height="30" class="thOver">模型图片地址</td>
 					<td width="10%" height="30" class="thOver">接入/规划数量</td>
 					<td width="10%" height="30" class="thOver">状态</td>
 					
@@ -73,12 +73,12 @@ $(document).ready(function() {
 					<a href="">${model.model_name}(${model.model_id})</a></td>
 					<td title="${model.picture}" >${model.picture}</td>
 					<td title="" ></td>
-					<td title="${model.audit_status}" >
+					<td title="${model.audit_status}" align="right">
 					<c:if test="${model.audit_status == 3}"  ><span style="color: red">模板已生成</span></c:if>
 					<c:if test="${model.audit_status == 0}"  ><span style="color: red">已提交审批</span></c:if>
 					<c:if test="${model.audit_status == 1}"  ><span style="color: red">审批驳回</span></c:if>
 					<c:if test="${model.audit_status == 2}"  ><span style="color: red">已重新提交</span></c:if>
-					<c:if test="${model.audit_status == 8}"  ><span style="color: red">审核通过</span>（${model.updated_at}）</c:if>
+					<c:if test="${model.audit_status == 8}"  ><span style="color: red">审核通过</span>（<fmt:formatDate value="${model.updated_at}" pattern="yyyy-mm-dd"/>）</c:if>
 					</td>
 					</tr>
  									

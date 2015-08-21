@@ -26,7 +26,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Dialog.js"></script>	
 <script type="text/javascript">	
 function addproperty(){
-	$('#t').append('<tr><td height="30" align="right">邀请用户邮箱</td><td align="left"><input id="useremail" name="useremail" style="width: 200px"/></td></tr>');
+	$('#t').append('<tr><td height="30" align="right" class="dataTableHead">邀请用户邮箱</td><td align="left"><input id="useremail" name="useremail" style="width: 200px"/></td></tr>');
 };
 
 
@@ -79,10 +79,13 @@ function submint1(){
 
 <body>
 <div class="sensor-div">
+	<h1 align="left" style="padding-left: 40px;">Ocloud 邀请开发人员</h1>
+				<hr style="border:1px dashed #c0c0c0;border-bottom:0;border-right:0;
+           border-left:0;width:95%;">
 <form action="<%=request.getContextPath()%>/vendor/invitedeve" method="post" id="form1">
-<table>
+<table align="center" >
 	<tr >
-				<td height="30" align="center">厂商授权申请
+				<td height="30" align="center" class="dataTableHead">厂商授权申请
 				</td>
 				<td align="center" colspan="2"><input style="width: 200px" readonly="readonly" name="vendor_id" id="vendor_id" value="<%=vendor.getVendor_id()%>"  type="text" style="color:gray " /> </td>
 			</tr>
@@ -91,10 +94,10 @@ function submint1(){
 </table>
 <div id="org"  class="org">
 
-	<table  cellspacing="0" id="t" cellpadding="2" width="100%">
+	<table id="t"  align="center">
 		<tbody>
 			<tr>
-				<td height="30" align="right">邀请用户邮箱</td>
+				<td height="30" align="right" class="dataTableHead">邀请用户邮箱</td>
 				<td align="left">
 					<input id="useremail" name="useremail" style="width: 200px"/></td>
 			</tr>
@@ -103,16 +106,15 @@ function submint1(){
 	</table>
 </div >
 </form>
-<div id="org1"  class="org1" ></div>
-<table cellspacing="0" cellpadding="2" width="100%">
-	<tr >
-	<td> <input type="button" class="submit-big-gray" style="cursor:pointer" onclick="addproperty()"  value="增加邀请用户" />
-	</td><td>
+<br/>
+<table cellspacing="0" cellpadding="2" width="100%" align="center" style="border: 0px;">
+	<tr style="border: 0px;">
+	<td style="border: 0px;"> <input type="button" class="submit-big-gray" style="cursor:pointer" onclick="addproperty()"  value="增加邀请用户" />
+	</td><td style="border: 0px;">
 	<input type="button" value="确认提交 " class="submit-big-gray" style="cursor:pointer"onclick="submint1()"></td>
 	</tr>
 </table>
 </div>
-
 
 
 
